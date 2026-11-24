@@ -6,9 +6,9 @@ A small microservices practice project: one **API Gateway** (Express + `http-pro
 
 ```
                          ┌──────────────────────┐
-                    ┌──▶ │ order-service  :3001 │
-client ──▶ gateway ─┼──▶ │ product-service:3002 │
-           :3000    └──▶ │ user-service   :3003 │
+                    ┌──▶ │ order_service  :3001 │
+client ──▶ gateway ─┼──▶ │ product_service:3002 │
+           :3000    └──▶ │ user_service   :3003 │
                          └──────────────────────┘
 ```
 
@@ -17,18 +17,18 @@ The gateway reads the second path segment (`/api/<service>/...`) and forwards th
 | Service         | Port | Endpoint                    |
 | --------------- | ---- | --------------------------- |
 | api_gateway     | 3000 | `/api/<service>/...`        |
-| order-service   | 3001 | `GET /api/order/:orderId`   |
-| product-service | 3002 | `GET /api/product/:productId` |
-| user-service    | 3003 | `GET /api/user/:userId`     |
+| order_service   | 3001 | `GET /api/order/:orderId`   |
+| product_service | 3002 | `GET /api/product/:productId` |
+| user_service    | 3003 | `GET /api/user/:userId`     |
 
 ## Project structure
 
 ```
 api_gateway_prac/
 ├── api_gateway/      # Gateway (port 3000)
-├── order-service/    # Order service (port 3001)
-├── product-service/  # Product service (port 3002)
-└── user-service/     # User service (port 3003)
+├── order_service/    # Order service (port 3001)
+├── product_service/  # Product service (port 3002)
+└── user_service/     # User service (port 3003)
 ```
 
 ## Requirements
@@ -40,7 +40,7 @@ api_gateway_prac/
 Install dependencies in each folder:
 
 ```bash
-for d in api_gateway order-service product-service user-service; do
+for d in api_gateway order_service product_service user_service; do
   (cd "$d" && npm install)
 done
 ```
@@ -50,9 +50,9 @@ done
 Start each service in its own terminal:
 
 ```bash
-cd order-service   && node index.js
-cd product-service && node index.js
-cd user-service    && node index.js
+cd order_service   && node index.js
+cd product_service && node index.js
+cd user_service    && node index.js
 cd api_gateway     && node index.js
 ```
 
